@@ -2,10 +2,10 @@ import firebase from './firebaseConfig';
 
 const TaskAPI = {
   // Criar uma nova tarefa
-  createProduto: async (produtoData, userId) => {
+  createTask: async (taskData, userId) => {
     try {
       const newTaskRef = firebase.database().ref(`tasks/${userId}`).push();
-      await newTaskRef.set(produtoData);
+      await newTaskRef.set(taskData);
       return newTaskRef.key; // Retorna o ID da nova tarefa
     } catch (error) {
       console.error('Erro ao criar tarefa:', error);
